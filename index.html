@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fingrow Longevity - Spersonalizowane protokoły długowieczności oparte na AI. Odblokuj swój potencjał zdrowotny dzięki wellness zasilanemu przez AI.">
+    <title>Fingrow Longevity – Spersonalizowane protokoły długowieczności oparte na AI</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Theme Colors */
+        :root {
+            --color-primary: #3AA6B9;
+            --color-primary-hover: #2997AA;
+            --color-heading: #0F172A;
+            --color-text: #454F5E;
+            --color-background: #E9F8F9;
+            --color-white: #FFFFFF;
+            --color-light: #CAE6E8;
+            --color-dark: #181823;
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --font-button: 'Rubik', sans-serif;
+
+            --max-width: 1200px;
+            --section-padding: 80px 20px;
+            --border-radius: 8px;
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-heading);
+            line-height: 1.3;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 4.2rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.8rem); }
+        h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        h6 { font-size: clamp(1rem, 1.5vw, 1.1rem); font-weight: 600; }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-button);
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1;
+            padding: 16px 24px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+            border-color: var(--color-primary-hover);
+            color: var(--color-white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* Header / Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .header.scrolled .nav-links a {
+            color: var(--color-text);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-background) 0%, var(--color-light) 100%);
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('images/hero.jpg') center/cover no-repeat;
+            opacity: 0.3;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-subtitle {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--color-text);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--section-padding);
+            background: var(--color-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--color-background);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(58, 166, 185, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--color-text);
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .vision-quote {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .vision-quote::before {
+            content: '"';
+            font-size: 4rem;
+            line-height: 0;
+            vertical-align: -20px;
+            opacity: 0.5;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--section-padding);
+            background: var(--color-background);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: 35px 30px;
+            text-align: center;
+            border: 1px solid var(--color-light);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 5px 20px rgba(58, 166, 185, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--color-background);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: var(--section-padding);
+            background: var(--color-white);
+        }
+
+        .trust-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .trust-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .trust-text p {
+            margin-bottom: 25px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--section-padding);
+            background: var(--color-heading);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: var(--color-light);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .email-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            margin-top: 10px;
+        }
+
+        .email-box .email-text {
+            color: var(--color-white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            user-select: all;
+        }
+
+        .email-box .copy-btn {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-button);
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .email-box .copy-btn:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .email-box .copy-btn.copied {
+            background: #22c55e;
+        }
+
+        .email-box .copy-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-white);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--color-light);
+        }
+
+        .footer-logo {
+            max-width: 150px;
+            margin: 0 auto 20px;
+        }
+
+        .footer p {
+            color: var(--color-text);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .hero::before {
+                width: 100%;
+                opacity: 0.15;
+                clip-path: none;
+            }
+
+            .trust-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .trust-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 120px 20px 60px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .services-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                max-width: 150px;
+            }
+
+            .service-card,
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Fingrow Longevity">
+            </a>
+            <nav class="nav">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#features">Funkcje</a></li>
+                    <li><a href="#trust">O nas</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Rozpocznij</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h6 class="hero-subtitle">Odblokuj swój potencjał zdrowotny dzięki wellness zasilanemu przez AI</h6>
+                <h1>Spersonalizowane protokoły długowieczności oparte na AI</h1>
+                <p>Fingrow Longevity wykorzystuje zaawansowaną sztuczną inteligencję i najnowsze badania naukowe, aby dostarczyć Ci spersonalizowane zalecenia zdrowotne i protokoły długowieczności.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Rozpocznij swoją podróż</a>
+                    <a href="#features" class="btn btn-outline">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nasze Usługi</h2>
+                <p>Wykorzystujemy najnowocześniejsze technologie AI i kompleksowe dane zdrowotne, aby dostarczyć Ci dogłębnych wglądów w Twoje zdrowie.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <img src="images/lab-tools.jpg" alt="Nasza główna usługa">
+                    </div>
+                    <h3>Nasza główna usługa</h3>
+                    <p>Otrzymuj spersonalizowane zalecenia zdrowotne, które integrują najnowsze technologie AI i badania naukowe w celu optymalizacji Twojego wellness.</p>
+                </div>
+                <div class="service-card animate-on-scroll animate-delay-1">
+                    <div class="service-icon">
+                        <img src="images/testing.jpg" alt="Nasza technologia">
+                    </div>
+                    <h3>Nasza technologia</h3>
+                    <p>Wykorzystując najnowocześniejsze AI i kompleksowe dane zdrowotne, nasza platforma dostarcza dogłębnych wglądów w Twoje zdrowie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision">
+        <div class="container">
+            <p class="vision-quote">Naszą wizją w Fingrow Longevity jest rewolucjonizowanie zdrowia i wellness poprzez zaawansowane AI i badania naukowe. Chcemy dostarczać spersonalizowane, praktyczne wglądy, które umożliwią jednostkom osiągnięcie najlepszego zdrowia."</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Co oferujemy</h2>
+                <p>Kompleksowe podejście do Twojego zdrowia i długowieczności wspierane przez sztuczną inteligencję.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <img src="images/research.jpg" alt="Spersonalizowane protokoły">
+                    </div>
+                    <h3>Spersonalizowane protokoły zdrowotne</h3>
+                    <p>Otrzymuj zalecenia dotyczące zdrowia i wellness, dopasowane do Twoich unikalnych potrzeb i celów.</p>
+                </div>
+                <div class="feature-card animate-on-scroll animate-delay-1">
+                    <div class="feature-icon">
+                        <img src="images/mineral.jpg" alt="Wglądy AI">
+                    </div>
+                    <h3>Wglądy napędzane przez AI</h3>
+                    <p>Wykorzystaj najnowocześniejszą technologię AI, aby uzyskać kompleksowe wglądy w swoje zdrowie i dobrostan.</p>
+                </div>
+                <div class="feature-card animate-on-scroll animate-delay-2">
+                    <div class="feature-icon">
+                        <img src="images/meeting.jpg" alt="Holistyczne podejście">
+                    </div>
+                    <h3>Holistyczne podejście do wellness</h3>
+                    <p>Integruj różne aspekty zdrowia, w tym odżywianie, fitness i biohacking, aby zoptymalizować swoje wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-image">
+                    <img src="images/hero.jpg" alt="Dlaczego ludzie ufają Fingrow Longevity">
+                </div>
+                <div class="trust-text">
+                    <h2>Dlaczego ludzie ufają Fingrow Longevity</h2>
+                    <p>Nasze zobowiązanie do doskonałości i innowacji w dziedzinie zdrowia i wellness sprawia, że ludzie nam ufają. Wykorzystujemy zaawansowane AI, aby dostarczać precyzyjne, spersonalizowane protokoły zdrowotne.</p>
+                    <p>Łączymy najnowsze osiągnięcia nauki o długowieczności z praktycznymi, łatwymi do wdrożenia zaleceniami, które pomogą Ci żyć dłużej i zdrowiej.</p>
+                    <a href="#features" class="btn btn-primary">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Skontaktuj się z nami</h2>
+            <p>Masz pytania? Chętnie pomożemy!</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <p style="color: var(--color-light); margin-bottom: 10px;">Email:</p>
+                    <div class="email-box">
+                        <span class="email-text" id="emailText">biuro@fingrow-longevity.com</span>
+                        <button class="copy-btn" id="copyBtn" onclick="copyEmail()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Kopiuj</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="margin-top: 25px;">
+                    <p style="color: var(--color-light); margin-bottom: 10px;">Adres:</p>
+                    <p style="color: var(--color-white);">ul. Progi 1 lok. 1<br>Warszawa, 00-634<br>Poland</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="images/logo.png" alt="Fingrow Longevity" class="footer-logo">
+            <p>Copyright © 2026 Fingrow Longevity. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Copy email to clipboard
+        function copyEmail() {
+            const email = document.getElementById('emailText').textContent;
+            const copyBtn = document.getElementById('copyBtn');
+
+            navigator.clipboard.writeText(email).then(() => {
+                copyBtn.classList.add('copied');
+                copyBtn.querySelector('span').textContent = 'Skopiowano!';
+
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.querySelector('span').textContent = 'Kopiuj';
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                copyBtn.classList.add('copied');
+                copyBtn.querySelector('span').textContent = 'Skopiowano!';
+
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.querySelector('span').textContent = 'Kopiuj';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
